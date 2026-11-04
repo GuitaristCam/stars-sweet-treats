@@ -57,6 +57,8 @@ h2{scroll-margin-top:60px}
 .mininav a:hover,.mininav a:focus{background:var(--sage3)}
 .topbtn{position:fixed;left:16px;bottom:16px;z-index:60;width:48px;height:48px;border-radius:50%;background:var(--choc);color:var(--cream);font-family:Arial,sans-serif;font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .25s}
 .topbtn.show{opacity:1;pointer-events:auto}
+.mininav{transition:transform .25s ease,visibility 0s}
+.mininav.hide{transform:translateY(-110%);visibility:hidden;pointer-events:none;transition:transform .25s ease,visibility 0s .25s}
 .note .flist{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:3px 16px;list-style:none;margin:8px 0 10px;padding:0}
 .note .flist li{position:relative;padding-left:13px}
 .note .flist li::before{content:"\2022";position:absolute;left:1px;color:#7C8E5B;font-weight:700}
@@ -161,5 +163,7 @@ if(ft){var fr=ft.getBoundingClientRect();foot=fr.top<window.innerHeight&&fr.bott
 fb.classList.toggle('show',past&&!near&&!foot);
 var tb=document.getElementById('topBtn');if(tb){tb.classList.toggle('show',past);}}
 window.addEventListener('scroll',upd,{passive:true});upd();
+var nav=document.querySelector('.mininav'),lastY=window.scrollY;
+window.addEventListener('scroll',function(){var y=window.scrollY;if(!nav){lastY=y;return;}if(y<300){nav.classList.remove('hide');}else if(y-lastY>5){nav.classList.add('hide');}else if(lastY-y>5){nav.classList.remove('hide');}lastY=y;},{passive:true});
 </script>
 </body></html>
