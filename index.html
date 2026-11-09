@@ -54,6 +54,7 @@ footer a{color:var(--blush)}
 h2{scroll-margin-top:60px}
 .mininav{position:sticky;top:0;z-index:50;background:var(--choc);display:flex;justify-content:center;gap:2px;padding:7px 4px;box-shadow:0 2px 8px rgba(0,0,0,.25);overflow-x:auto}
 .mininav a{color:var(--cream);font-family:Arial,sans-serif;font-weight:700;font-size:14px;text-decoration:none;padding:6px 11px;border-radius:999px;white-space:nowrap}
+@media (max-width:700px){.mininav{justify-content:flex-start}}
 .mininav a:hover,.mininav a:focus{background:var(--sage3)}
 .topbtn{position:fixed;left:16px;bottom:16px;z-index:60;width:48px;height:48px;border-radius:50%;background:var(--choc);color:var(--cream);font-family:Arial,sans-serif;font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .25s}
 .topbtn.show{opacity:1;pointer-events:auto}
